@@ -1,0 +1,32 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        int n = s.length();
+        vector<string> temp;
+        int i;
+        string word = "";
+
+        for (i = 0; i < n; i++) {
+            if (s[i] != ' ') {          // build word
+                word += s[i];
+            } else {
+                if (word.length()) {   // push only word
+                    temp.push_back(word);
+                    word = "";
+                }
+            }
+        }
+
+        if (word.length() > 0) {        // last word
+            temp.push_back(word);
+        }
+
+        string ans = "";
+        for (i = temp.size() - 1; i >= 0; i--) {
+            ans += temp[i];
+            if (i != 0) ans += " ";
+        }
+
+        return ans;
+    }
+};
