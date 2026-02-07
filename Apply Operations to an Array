@@ -1,0 +1,33 @@
+Problem No.: 2460
+// Leetcode
+Apply Operations to an Array
+
+class Solution {
+public:
+    vector<int> applyOperations(vector<int>& nums) {
+        int n=nums.size();
+        int idx=0;
+        int curr=0;
+        int i;
+        while(curr<n-1)
+        {
+            if(nums[curr]==nums[curr+1])
+            {
+                nums[curr]=2*nums[curr];
+                nums[curr+1]=0;
+            }
+            curr++;
+        }
+        curr=0;
+        while(curr<n)
+        {
+            if(nums[curr]!=0)
+            {
+                swap(nums[curr],nums[idx]);
+                idx++;
+            }
+            curr++;
+        }
+        return nums;
+    }
+};
