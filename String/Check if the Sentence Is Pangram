@@ -1,0 +1,30 @@
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        vector<int>freq(26);
+        for(int x:sentence)
+        {
+            freq[x-'a']++;
+        }
+        for(auto y:freq)
+        {
+            if(y==0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+------------------------------------------------------
+
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        unordered_set<char> charCount(sentence.begin(),sentence.end());
+        return charCount.size()==26;
+    }
+};
+
+
