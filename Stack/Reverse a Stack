@@ -1,0 +1,26 @@
+class Solution {
+  public:
+    void reverseStack(stack<int> &st) {
+        // code here
+        stack<int>st2;
+        stack<int>st3;
+        while(!st.empty())
+        {
+            int temp=st.top();
+            st.pop();
+            st2.push(temp);
+        }
+        while(!st2.empty())
+        {
+            int temp=st2.top();
+            st2.pop();
+            st3.push(temp);
+        }
+        while(!st3.empty())
+        {
+            int temp=st3.top();
+            st3.pop();
+            st.push(temp);
+        }
+    }
+};
