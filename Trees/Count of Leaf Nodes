@@ -3,11 +3,13 @@ class Solution {
     void countx(Node* root,int &count)
     {
         if(root==NULL) return;
+        // Leaf Node
         if(root->left==NULL && root->right==NULL)
         {
             count++;
             return;
         }
+        // non-leaf Node
         countx(root->left,count);
         countx(root->right,count);
     }
@@ -31,3 +33,8 @@ int countLeaves(Node* root) {
 
     return countLeaves(root->left) + countLeaves(root->right);
 }
+Note: Here we used the DFS Algorithm -- Depth First Search
+Time complexity: O(n)
+// Every node visited once
+Space complexity: O(h)
+// Recursive stack height = tree height
