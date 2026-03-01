@@ -1,0 +1,46 @@
+// Approach -1
+
+
+class Solution {
+  public:
+    int firstNonRepeating(vector<int>& arr) {
+        // Complete the function
+        unordered_map<int,int>mp;
+        int i;
+        int n=arr.size();
+        for(i=0;i<n;i++)
+        {
+            mp[arr[i]]++;
+        }
+        for(i=0;i<n;i++)
+        {
+            if(mp[arr[i]]==1)
+            {
+                return arr[i];
+            }
+        }
+        return 0;
+    }
+};
+
+
+
+
+
+// Approach-2
+
+
+class Solution {
+  public:
+    int firstNonRepeating(vector<int>& arr) {
+        // Complete the function
+        int n=arr.size();
+        int a=arr[0];
+        int i;
+        for(i=1;i<n;i++)
+        {
+            a=a^arr[i];
+        }
+        return a;
+    }
+};
